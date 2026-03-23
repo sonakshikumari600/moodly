@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // Importing Flutter material design package
 
+// StatelessWidget (not changing dynamically)
 class HistoryScreen extends StatelessWidget {
 
+  // List of moods 
   final List<Map<String, String>> moods = [
     {'mood': '😄', 'text': 'Great day!'},
     {'mood': '😢', 'text': 'Bad day'},
@@ -11,14 +13,28 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Mood History")),
+      // AppBar at the top
+      appBar: AppBar(
+        title: Text("Mood History"), // Title of the screen
+      ),
 
+      // Body
       body: ListView.builder(
-        itemCount: moods.length,
+        itemCount: moods.length, // Total number of items in the list
+
+        // Builds each list item dynamically
         itemBuilder: (context, index) {
           return ListTile(
-            leading: Text(moods[index]['mood']!, style: TextStyle(fontSize: 24)),
-            title: Text(moods[index]['text']!),
+            // Leading widget (left side) showing emoji
+            leading: Text(
+              moods[index]['mood']!,
+              style: TextStyle(fontSize: 24), // emoji size
+            ),
+
+            // Title text showing mood description
+            title: Text(
+              moods[index]['text']!,
+            ),
           );
         },
       ),

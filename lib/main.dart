@@ -1,59 +1,64 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
-import 'history_screen.dart';
-import 'analytics_screen.dart';
-import 'profile_screen.dart';
+import 'home_screen.dart';     // Import Home screen
+import 'history_screen.dart';  // Import History screen
+import 'profile_screen.dart';  // Import Profile screen
 
+// Entry point of the app
 void main() {
-  runApp(MoodlyApp());
+  runApp(MyApp()); // Runs the root widget
 }
 
-class MoodlyApp extends StatelessWidget {
+// Root widget of the application
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      debugShowCheckedModeBanner: false, // Removes debug banner
+      home: MainScreen(), // First screen of the app
     );
   }
 }
 
+// Main screen with bottom navigation
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
+// State class for MainScreen
 class _MainScreenState extends State<MainScreen> {
 
-  int _currentIndex = 0;
+  int _currentIndex = 0; // Stores the selected tab index
 
-  // ⚠️ IMPORTANT: const lagao (best practice)
+  // List of screens (must match bottom navigation items)
   final List<Widget> _screens = [
-    HomeScreen(),
-    HistoryScreen(),
-    AnalyticsScreen(),
-    ProfileScreen(),
+    HomeScreen(),    // Index 0
+    HistoryScreen(), // Index 1
+    ProfileScreen(), // Index 2
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      // 👇 ye line sabse important hai
+
+      // Displays the selected screen
       body: _screens[_currentIndex],
 
+      // Bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+        currentIndex: _currentIndex, // Highlights selected tab
 
+        // Called when user taps on a tab
         onTap: (index) {
           setState(() {
-            _currentIndex = index; // 👈 ye change karega screen
+            _currentIndex = index; // Updates selected index
           });
         },
 
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.purple,   // Color of selected item
+        unselectedItemColor: Colors.grey,   // Color of unselected items
 
+        // Navigation items (must match _screens list)
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -62,10 +67,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             label: "History",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: "Analytics",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

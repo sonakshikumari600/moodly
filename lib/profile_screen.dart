@@ -6,24 +6,22 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
+        elevation: 0,
       ),
 
-      body: Padding(
-        padding: EdgeInsets.all(20),
-
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center, // Center vertically
           children: [
 
             // 👤 Profile Image
-            
             CircleAvatar(
-              radius: 50,
-              backgroundColor: const Color.fromARGB(255, 243, 201, 232),
+              radius: 60,
+              backgroundColor: Color.fromARGB(255, 243, 201, 232),
               child: Icon(
                 Icons.person,
-                size: 50,
-                color: const Color.fromARGB(255, 236, 123, 202),
+                size: 60,
+                color: Color.fromARGB(255, 236, 123, 202),
               ),
             ),
 
@@ -33,12 +31,12 @@ class ProfileScreen extends StatelessWidget {
             Text(
               "Sonakshi",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            SizedBox(height: 5),
+            SizedBox(height: 8),
 
             // 👤 Subtitle
             Text(
@@ -47,83 +45,6 @@ class ProfileScreen extends StatelessWidget {
                 fontSize: 14,
                 color: Colors.grey,
               ),
-            ),
-
-            SizedBox(height: 30),
-
-            // 📊 Stats Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-
-                // Entries
-                Column(
-                  children: [
-                    Text("85",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold)),
-                    SizedBox(height: 5),
-                    Text("Entries"),
-                  ],
-                ),
-
-                // Streak
-                Column(
-                  children: [
-                    Text("12",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold)),
-                    SizedBox(height: 5),
-                    Text("Streak"),
-                  ],
-                ),
-
-                // Happy Days
-                Column(
-                  children: [
-                    Text("50",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold)),
-                    SizedBox(height: 5),
-                    Text("Happy Days"),
-                  ],
-                ),
-
-              ],
-            ),
-
-            SizedBox(height: 30),
-
-            // ⚙️ Simple Options (Row only)
-            Row(
-              children: [
-                Icon(Icons.edit),
-                SizedBox(width: 10),
-                Text("Edit Profile"),
-              ],
-            ),
-
-            SizedBox(height: 15),
-
-            Row(
-              children: [
-                Icon(Icons.notifications),
-                SizedBox(width: 10),
-                Text("Reminders"),
-              ],
-            ),
-
-            SizedBox(height: 15),
-
-            Row(
-              children: [
-                Icon(Icons.logout),
-                SizedBox(width: 10),
-                Text("Logout"),
-              ],
             ),
 
           ],
